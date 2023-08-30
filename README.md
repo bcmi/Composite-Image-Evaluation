@@ -18,10 +18,14 @@ Here are some possible evaluation metrics to evaluate the quality of composite i
 
 + Evaluate the fidelity of foreground, i.e., whether the synthesized foreground is similar to the input foreground.
 
-  + Clip score
-  + Dino score
+  + Clip score: use [CLIP](https://github.com/openai/CLIP) to extract the embeddings from the input foreground image and the generated foreground patch, and measure their similarity.
+ 
+  + Dino score: use [DINO](https://github.com/facebookresearch/dino) to measure the average cosine similarity between the input and generated foreground.  
+<!--
+Specifically, we crop out foreground patch from generated composite and mask the non-object region to compute CLIP score with the masked input foreground, in which we estimate the mask of foreground object using [SAM](https://github.com/facebookresearch/segment-anything). We employ pretrained [clip-ViT-B-32](https://huggingface.co/openai/clip-vit-base-patch32) as image encoder following [Paint-by-Example](https://github.com/Fantasy-Studio/Paint-by-Example/tree/main).
+-->
 
 + Evaluate the over quality of foreground or the whole composite image.
 
-  + FID
-  + QS
+  + FID: use pretrained image encoder (*e.g.*, InceptionNet, CLIP) to extract the embeddings from real images and generated images, and measure their [Fréchet Inception Distance](https://github.com/mseitzer/pytorch-fid).
+  + QS: use [quality score](https://github.com/cientgu/GIQA) to measure the quality of each single generated image, and compute average score.    
