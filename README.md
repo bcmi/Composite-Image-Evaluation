@@ -28,4 +28,9 @@ Specifically, we crop out foreground patch from generated composite and mask the
 + Evaluate the over quality of foreground or the whole composite image.
 
   + FID: use pretrained image encoder (*e.g.*, InceptionNet, CLIP) to extract the embeddings from real images and generated images, and measure their [Fréchet Inception Distance](https://github.com/mseitzer/pytorch-fid).
-  + QS: use [quality score](https://github.com/cientgu/GIQA) to measure the quality of each single generated image, and compute average score.    
+  + QS: use [quality score](https://github.com/cientgu/GIQA) to measure the quality of each single generated image, and compute average score.
+ 
+ 
+Some evaluation metrics have been integrated into our [Libcom](https://github.com/bcmi/libcom) toolbox. Try this [online demo](https://libcom.ustcnewly.com/) for image composition and have fun!
+
+[![]](https://github.com/user-attachments/assets/87416ec5-2461-42cb-9f2d-5030b1e1b5ec)
